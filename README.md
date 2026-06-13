@@ -1,1 +1,1 @@
-![Tests](https://github.com/TU_USUARIO/TU_REPO/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/benyiz/prueba-railway-render/actions/workflows/test.yml/badge.svg)
