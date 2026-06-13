@@ -36,4 +36,20 @@ describe("Pokemon API", () => {
     expect(res.headers["content-type"]).toMatch(/json/);
     expect(res.body.nombre).toBe("Ghost");
   });
+
+  it("POST /login - prueba de rate limit 429", async () => {
+    let res
+    for (let i = 0; i < 6; i++) { 
+      res = await request(app)
+      .post("/login")
+      .send({
+        email: "benja@test.com",
+        password: "123456"
+      });
+    }
+
+    expect(res.status).toBe(429);
+    expect(res.headers["content-type"]).toMatch(/json/);
+    expect(res.body.error).toBe("Demasiados intentos, intentá de nuevo en 1 minuto");
+  });
 });
