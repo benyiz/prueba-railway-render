@@ -34,6 +34,9 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Generar cliente Prisma
+        run: npx prisma generate
+        
       - name: Correr tests
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
