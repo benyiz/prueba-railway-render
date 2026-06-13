@@ -38,4 +38,4 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-        run: npx prisma migrate deploy && jest --detectOpenHandles --forceExit
+        run: npx prisma migrate deploy && npx jest --detectOpenHandles --forceExit
