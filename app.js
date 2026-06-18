@@ -20,6 +20,26 @@ const authLimiter = rateLimit({
   message: { error: "Demasiados intentos, intentá de nuevo en 1 minuto" },
 });
 
+app.get('/', (req, res) => {
+  res.json({
+    mensaje: 'API de Pokémon funcionando correctamente 🚀',
+    documentacion: {
+      auth: {
+        'POST /register': 'Registra un usuario nuevo',
+        'POST /login': 'Inicia sesión y devuelve un token JWT'
+      },
+      pokemon: {
+        'GET /pokemon': 'Lista todos los pokémons (requiere token)',
+        'GET /pokemon/:id': 'Obtiene un pokémon por ID (requiere token)',
+        'POST /pokemon': 'Crea un pokémon nuevo (requiere token)',
+        'PUT /pokemon/:id': 'Actualiza un pokémon (requiere token)',
+        'DELETE /pokemon/:id': 'Elimina un pokémon (requiere token)'
+      }
+    },
+    repo: 'https://github.com/benyiz/prueba-railway-render'
+  });
+});
+
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
