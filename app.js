@@ -22,7 +22,7 @@ const authLimiter = rateLimit({
 
 app.get('/', (req, res) => {
   res.json({
-    mensaje: 'API de Pokémon funcionando correctamente 🚀',
+    mensaje: 'API de Pokémon',
     documentacion: {
       auth: {
         'POST /register': 'Registra un usuario nuevo',
